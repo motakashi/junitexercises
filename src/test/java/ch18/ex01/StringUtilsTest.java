@@ -29,7 +29,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void exceptionRule() {
+    public void toSnakeCaseはNullPointerExceptionを返す_Nullの場合() {
         NullPointerException e = assertThrows(NullPointerException.class, () -> StringUtils.toSnakeCase(null));
         assertEquals("text == null.", e.getMessage());
     }
