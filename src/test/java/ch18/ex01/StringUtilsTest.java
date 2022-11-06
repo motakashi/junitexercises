@@ -1,6 +1,8 @@
 package ch18.ex01;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -24,4 +26,13 @@ public class StringUtilsTest {
         assertThat(StringUtils.toSnakeCase("practiceJunit"), is("practice_junit"));
     }
 
+    @Test
+    public void exceptionRule() {
+        assertThrows(
+            NullPointerException.class,
+            () -> {
+                StringUtils.toSnakeCase(null);
+            }
+        );
+    }
 }
