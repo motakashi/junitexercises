@@ -2,6 +2,8 @@ package ch18.ex01;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -28,11 +30,7 @@ public class StringUtilsTest {
 
     @Test
     public void exceptionRule() {
-        assertThrows(
-            NullPointerException.class,
-            () -> {
-                StringUtils.toSnakeCase(null);
-            }
-        );
+        NullPointerException e = assertThrows(NullPointerException.class, () -> StringUtils.toSnakeCase(null));
+        assertEquals("text == null.", e.getMessage());
     }
 }
